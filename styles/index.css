@@ -1,0 +1,55 @@
+:root {
+    --dark-1: #404552;
+    --dark-2: #383c4a;
+    --dark-3: #4b5162;
+    --blue-1: #5294e2;
+    --dark-4: #7c818c;
+}
+
+html, body {
+    height: 100%;
+    background-color: var(--dark-3);
+    color: white;
+}
+
+header {
+    position: relative;
+
+    height: 10rem;
+
+    background: var(--dark-2);
+    color: white;
+
+    border-bottom: 1px solid var(--blue-1);
+}
+
+header a {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    color: white;
+}
+
+header canvas {
+    width: 100%;
+    height: 100%;
+}
+
+nav {
+    top: 0;
+    position: sticky;
+
+    background-color: var(--dark-4);
+
+    border-bottom: 1px solid var(--blue-1);
+
+    height: 2rem;
+}
+
+/* main {
+    
+} */
