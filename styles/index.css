@@ -1,9 +1,9 @@
 :root {
     --dark-1: #404552;
-    --dark-2: #383c4a;
-    --dark-3: #4b5162;
+    --dark-2: #2a2d37;
+    --dark-3: #343843;
     --blue-1: #5294e2;
-    --dark-4: #7c818c;
+    --dark-4: #5f636a;
 }
 
 html, body {
@@ -40,16 +40,34 @@ header canvas {
 }
 
 nav {
-    top: 0;
     position: sticky;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    
+    gap: 1px;
+
+    height: 2rem;
 
     background-color: var(--dark-4);
 
     border-bottom: 1px solid var(--blue-1);
-
-    height: 2rem;
 }
 
-/* main {
-    
-} */
+nav a {  
+    height: 100%;
+
+    padding: 0 1rem;
+
+    text-decoration: none;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a:hover {
+    background-color: #555;
+}

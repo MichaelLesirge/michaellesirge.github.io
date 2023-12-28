@@ -60,7 +60,7 @@
     // Trail effect properties
     const trail = [];
     const trailMaxLength = 20;
-    const trailSpacing = 0;
+    const trailSpacing = 3;
     let trailCounter = 0;
 
     function clear() {
@@ -105,17 +105,6 @@
         ctx.fill();
         ctx.closePath();
 
-        if (trailCounter > trailSpacing) {
-            trail.push({ x: ballX, y: ballY });
-            if (trail.length > trailMaxLength) {
-                trail.shift();
-            }
-            trailCounter = 0;
-        }
-        else {
-            trailCounter++;
-        }
-
         // Draw the scores
         // ctx.fillText(`Player 1: ${player1Score}`, 100, 50);
         // ctx.fillText(`Player 2: ${player2Score}`, canvas.width - 160, 50);
@@ -157,17 +146,18 @@
                 ballY < player2Y + paddleHeight)
         ) {
             ballSpeedX = -ballSpeedX;
+            trail.push({ x: ballX, y: ballY });
         }
 
         // Score update
         if (ballX < 0) {
             player2Score++;
             if (shouldReset) resetBall();
-            else setTimeout(() => done = true, 700);
+            else done = true;
         } else if (ballX > canvas.width) {
             player1Score++;
             if (shouldReset) resetBall();
-            else setTimeout(() => done = true, 700);
+            else done = true;
         }
 
 
@@ -177,6 +167,15 @@
             player1Score = 0;
             player2Score = 0;
         }
+
+        // add points on trail
+        trailCounter++;
+        if (trailCounter > trailSpacing) {
+            trail.push({ x: ballX, y: ballY });
+            if (trail.length > trailMaxLength) trail.shift();
+            trailCounter = 0;
+        }
+
     }
 
     function resetBall() {
@@ -200,8 +199,8 @@
         update();
         clear();
         draw();
-        if (shouldReset || !done) requestAnimationFrame(gameLoop);
-        else setTimeout(clear, 10);
+        if (!done) requestAnimationFrame(gameLoop);
+        else clear()
     }
 
     gameLoop();
