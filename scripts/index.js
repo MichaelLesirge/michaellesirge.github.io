@@ -1,17 +1,24 @@
 
-// --- Link Back Title ---
-{
-    const title = document.querySelector("#link-title");
+const smallScreen = screen.width < 500;
 
+const main = document.querySelector("main")
+
+const content = {
+    
+}
+
+selfLink(document.querySelector("#link-title"), smallScreen);
+if (!smallScreen) pong(document.querySelector("#pong"));
+
+// --- Link Back Title ---
+function selfLink(aTag, host) {
     // Set title/link at top of page to current URL
-    title.setAttribute("href", window.location.href);
-    title.textContent = window.location.href;
+    aTag.setAttribute("href", window.location.href);
+    aTag.textContent = host ? window.location.host : window.location.href;
 }
 
 // --- Pong ---
-{
-    const canvas = document.querySelector("#pong");
-
+function pong(canvas) {
     const dpr = Math.ceil(window.devicePixelRatio || 1);
 
     canvas.width = canvas.clientWidth * dpr;
@@ -85,6 +92,7 @@
 
         // Trail
         for (let i = 0; i < trail.length; i++) {
+
             const alpha = i / trailMaxLength; // Adjust trail transparency
             ctx.fillStyle = `rgba(0, 200, 130, ${alpha})`;
             ctx.beginPath();
@@ -146,7 +154,6 @@
                 ballY < player2Y + paddleHeight)
         ) {
             ballSpeedX = -ballSpeedX;
-            trail.push({ x: ballX, y: ballY });
         }
 
         // Score update
@@ -199,8 +206,14 @@
         update();
         clear();
         draw();
-        if (!done) requestAnimationFrame(gameLoop);
-        else clear()
+        // if (!done) requestAnimationFrame(gameLoop);
+        if (!done) {
+            setTimeout(gameLoop, 1000 / 60);
+        }
+        else {
+            clear()
+            main.scrollIntoView({ behavior: "smooth"});
+        }
     }
 
     gameLoop();

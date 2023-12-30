@@ -71,3 +71,8 @@ nav a {
 nav a:hover {
     background-color: #555;
 }
+
+main {
+    margin-top: 1rem;
+    margin-left: min(100px, 10%);
+}
