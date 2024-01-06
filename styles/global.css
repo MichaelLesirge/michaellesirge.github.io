@@ -4,3 +4,40 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    
+    gap: 1px;
+
+    height: 2rem;
+
+    background-color: var(--dark-4);
+
+    border-bottom: 1px solid var(--blue-1);
+}
+
+nav a {  
+    height: 100%;
+
+    padding: 0 1rem;
+
+    text-decoration: none;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a:hover {
+    background-color: #555;
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,29 +12,32 @@
 
     <title>Michael</title>
 </head>
+
 <body>
     <header>
         <canvas id="pong"></canvas>
         <h1><a id="link-title" href="https://michael-lesirge.github.io/">https://michael-lesirge.github.io/</a></h1>
     </header>
-    <nav>
-        <a href="">
-            <span>Home</span>
-        </a>
-        <a href="">
-            <span>About</span>
-        </a>
-        <a href="">
-            <span>Projects</span>
-        </a>
-    </nav>
-    <main>
-        <section>
-            <span>IN PROGRESS</span>
-            <h2>Python Projects</h2>
-            <h2>Web Projects</h2>
-            <a href="/simple-web">Web project home page</a>
-        </section>
-    </main>
+    <div class="body">
+        <nav>
+            <a href="">Projects</a>        
+            <a href="#python">Python</a>        
+            <a href="#web">Web</a>        
+        </nav>
+        <main>
+
+            <h3 style="color: yellow;">This page is in progress, <a style="color: yellow;" href="https://michael-lesirge.github.io/simple-web/">Go here instead</a></h3>
+            <fieldset id="python">
+                <legend class="title"><h2>Python Projects</h2><img src="images/logos/python.png" alt="Python"></legend>
+                <div class="card-container">
+                </div>
+            </fieldset>
+
+            <fieldset id="web">
+                <legend class="title"><h2>Web Projects</h2></legend>
+                <a style="color: white;" href="https://michael-lesirge.github.io/simple-web/"></a>
+            </fieldset>
+        </main>
+    </div>
 </body>
 </html>

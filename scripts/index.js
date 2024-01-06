@@ -1,20 +1,47 @@
 
 const smallScreen = screen.width < 500;
 
-const main = document.querySelector("main")
+const mainSection = document.querySelector(".body")
 
-const content = {
-    
+const contentArea = document.querySelector(".card-container")
+
+//Static site generator? Lame
+const projectImagePath = "images/projects"
+const content = [
+    {
+        humanReadableName: "Neural Network",
+        name: "neural-network",
+        image: "neural-network.gif",
+    },
+    {
+        humanReadableName: "Cryptography",
+    },
+    {
+        humanReadableName: "Test",
+    }
+]
+
+for (const project of content) {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.style.backgroundImage = `url(${projectImagePath}/${project.image ?? "example.png"})`;
+
+    const title = document.createElement("span");
+    title.innerText = project.humanReadableName;
+
+    card.appendChild(title)
+
+    contentArea.appendChild(card);
 }
 
 selfLink(document.querySelector("#link-title"), smallScreen);
 if (!smallScreen) pong(document.querySelector("#pong"));
 
 // --- Link Back Title ---
-function selfLink(aTag, host) {
+function selfLink(tag, shortVersion = false) {
     // Set title/link at top of page to current URL
-    aTag.setAttribute("href", window.location.href);
-    aTag.textContent = host ? window.location.host : window.location.href;
+    tag.setAttribute("href", window.location.href);
+    tag.textContent = shortVersion ? window.location.host : window.location.href;
 }
 
 // --- Pong ---
@@ -80,10 +107,10 @@ function pong(canvas) {
     function draw() {
         // Controls
         ctx.fillStyle = "white"
-        ctx.font = `${paddleWidth*2}px monospace`
+        ctx.font = `${paddleWidth * 2}px monospace`
         if (!player1Moved) {
-            ctx.fillText(player1Up.toUpperCase() , paddleWallGap, paddleWallGap);
-            ctx.fillText(player1Down.toUpperCase() , paddleWallGap, canvas.height - paddleWallGap);
+            ctx.fillText(player1Up.toUpperCase(), paddleWallGap, paddleWallGap);
+            ctx.fillText(player1Down.toUpperCase(), paddleWallGap, canvas.height - paddleWallGap);
         }
         if (!player2Moved) {
             ctx.fillText(player2Up.toUpperCase(), canvas.width - paddleWidth - paddleWallGap, paddleWallGap);
@@ -92,7 +119,6 @@ function pong(canvas) {
 
         // Trail
         for (let i = 0; i < trail.length; i++) {
-
             const alpha = i / trailMaxLength; // Adjust trail transparency
             ctx.fillStyle = `rgba(0, 200, 130, ${alpha})`;
             ctx.beginPath();
@@ -126,7 +152,7 @@ function pong(canvas) {
             player1Y = Math.min(player1Y + paddleSpeed, canvas.height - paddleHeight);
             player1Moved = true;
         }
-        
+
         if (keys[player2Up] && paddleStartY > 0) {
             player2Y = Math.max(player2Y - paddleSpeed, 0);
             player2Moved = true;
@@ -144,16 +170,16 @@ function pong(canvas) {
             ballSpeedY = -ballSpeedY;
         }
 
-        // Ball collision with paddles
-        if (
-            (ballX - ballRadius*0.25 <= paddleWidth + paddleWallGap &&
-                ballY + ballRadius > player1Y &&
-                ballY - ballRadius < player1Y + paddleHeight) ||
-            (ballX + ballRadius*0.25 >= canvas.width - paddleWidth - paddleWallGap &&
-                ballY > player2Y &&
-                ballY < player2Y + paddleHeight)
-        ) {
-            ballSpeedX = -ballSpeedX;
+        // Ball collision with paddles. Not just inverted to to bouncing around inside paddle
+        if (ballX - ballRadius * 0.25 <= paddleWidth + paddleWallGap && ballY + ballRadius > player1Y && ballY - ballRadius < player1Y + paddleHeight) {
+            ballSpeedX = Math.abs(ballSpeedX) 
+            // ballSpeedX = -ballSpeedX;
+        }
+
+        else if (ballX + ballRadius * 0.25 >= canvas.width - paddleWidth - paddleWallGap &&
+            ballY > player2Y &&
+            ballY < player2Y + paddleHeight) {
+            ballSpeedX = -Math.abs(ballSpeedX);
         }
 
         // Score update
@@ -212,7 +238,7 @@ function pong(canvas) {
         }
         else {
             clear()
-            main.scrollIntoView({ behavior: "smooth"});
+            mainSection.scrollIntoView({ behavior: "smooth" });
         }
     }
 
