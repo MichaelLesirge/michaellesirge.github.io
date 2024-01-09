@@ -1,4 +1,11 @@
 
+setTimeout(
+    () => {
+        const redirect = confirm("Go to web project page?");
+        if (redirect) window.location.href = "https://michael-lesirge.github.io/simple-web/";
+    }, 1000 * 10
+)
+
 const smallScreen = screen.width < 500;
 
 const mainSection = document.querySelector(".body")
