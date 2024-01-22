@@ -11,6 +11,10 @@ body {
     height: 100%;
 }
 
+a {
+    color: white;
+}
+
 .body {
     min-height: 100%;
     background-color: var(--dark-3);
@@ -74,6 +78,7 @@ fieldset .card-container {
     flex-wrap: wrap;
 
     justify-content: space-evenly;
+    gap: 1rem;
     align-items: center;
 }
 
@@ -86,6 +91,8 @@ fieldset .card-container .card {
 
     padding: 0.2rem;
 
+    background-color: white;
+
     background-size: contain;
     /* background-size: cover; */
 
@@ -94,7 +101,9 @@ fieldset .card-container .card {
     background-position: center;
     background-color: var(--dark-4);
 
-    background-blend-mode: color-burn;
+    /* background-blend-mode: color-burn; */
+    /* background-blend-mode: hard-light; */
+    /* background-blend-mode: soft-light; */
 
     box-shadow: 10px -34px 48px 0px rgba(0,0,0,0.75) inset;
     -webkit-box-shadow: 10px -34px 48px 0px rgba(0,0,0,0.75) inset;

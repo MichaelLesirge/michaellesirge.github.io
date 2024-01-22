@@ -1,44 +1,80 @@
 
-setTimeout(
-    () => {
-        const redirect = confirm("Go to web project page?");
-        if (redirect) window.location.href = "https://michael-lesirge.github.io/simple-web/";
-    }, 1000 * 10
-)
-
 const smallScreen = screen.width < 500;
 
 const mainSection = document.querySelector(".body")
 
-const contentArea = document.querySelector(".card-container")
-
 //Static site generator? Lame
 const projectImagePath = "images/projects"
-const content = [
-    {
-        humanReadableName: "Neural Network",
-        name: "neural-network",
-        image: "neural-network.gif",
-    },
-    {
-        humanReadableName: "Cryptography",
-    },
-    {
-        humanReadableName: "Test",
+const sections = {
+    python: [
+        {
+            humanReadableName: "Neural Network",
+            links: { "Project": "https://github.com/michael-lesirge/neural-network" },
+            image: "neural-network.gif",
+        },
+        {
+            humanReadableName: "Cryptography",
+            links: { "Project": "https://github.com/michael-lesirge/password-manager" },
+            image: "aes.gif",
+        },
+        {
+            humanReadableName: "Algorithms",
+            name: {
+                "Sorting": "https://github.com/michael-lesirge/data-structures-and-algorithms/tree/main/sorting",
+                "LeetCode": "https://github.com/michael-lesirge/leetcode"
+            },
+            image: "sorting.gif",
+        },
+        {
+            humanReadableName: "Physics and Animations",
+            name: {
+                "Physics": "https://github.com/michael-lesirge/intermediate-programming-class/tree/main/pygame-physics",
+                "Animations": "https://github.com/michael-lesirge/intermediate-programming-class/tree/main/turtle"
+            },
+            image: "balls.gif",
+        }
+    ],
+    web: [
+        {
+            humanReadableName: "Rock Paper Scissors",
+            links: { "Link": "https://michael-lesirge.github.io/simple-web-projects/rock-paper-scissors-battle/" },
+            image: "rock-paper-scissors-battle.png",
+        },
+        {
+            humanReadableName: "PID Simulation",
+            links: { "Link": "https://michael-lesirge.github.io/simple-web-projects/pid-demo/" },
+            image: "pid-demo.png",
+        },
+        {
+            humanReadableName: "Text Effect Changer",
+            links: { "Link": "https://michael-lesirge.github.io/simple-web-projects/text-changer/" },
+            image: "text-changer.png",
+        },
+        {
+            humanReadableName: "Roman Numeral Converter",
+            links: { "Link": "https://michael-lesirge.github.io/simple-web-projects/roman-numerals/" },
+            image: "roman-numerals.png",
+        },
+    ],
+}
+
+for (const [name, content] of Object.entries(sections)) {
+    const section = document.getElementById(name);
+
+    const contentArea = section.querySelector(".card-container")
+
+    for (const project of content) {
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.style.backgroundImage = `url(${projectImagePath}/${project.image ?? "example.png"})`;
+
+        const title = document.createElement("span");
+        title.innerText = project.humanReadableName;
+
+        card.appendChild(title)
+
+        contentArea.appendChild(card);
     }
-]
-
-for (const project of content) {
-    const card = document.createElement("div");
-    card.classList.add("card");
-    card.style.backgroundImage = `url(${projectImagePath}/${project.image ?? "example.png"})`;
-
-    const title = document.createElement("span");
-    title.innerText = project.humanReadableName;
-
-    card.appendChild(title)
-
-    contentArea.appendChild(card);
 }
 
 selfLink(document.querySelector("#link-title"), smallScreen);
@@ -179,7 +215,7 @@ function pong(canvas) {
 
         // Ball collision with paddles. Not just inverted to to bouncing around inside paddle
         if (ballX - ballRadius * 0.25 <= paddleWidth + paddleWallGap && ballY + ballRadius > player1Y && ballY - ballRadius < player1Y + paddleHeight) {
-            ballSpeedX = Math.abs(ballSpeedX) 
+            ballSpeedX = Math.abs(ballSpeedX)
             // ballSpeedX = -ballSpeedX;
         }
 
