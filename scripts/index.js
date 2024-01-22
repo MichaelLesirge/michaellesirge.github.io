@@ -4,56 +4,51 @@ const smallScreen = screen.width < 500;
 const mainSection = document.querySelector(".body")
 
 //Static site generator? Lame
+// TODO, make all projects clickable links
 const projectImagePath = "images/projects"
 const sections = {
     python: [
         {
             humanReadableName: "Neural Network",
-            links: { "Project": "https://github.com/michael-lesirge/neural-network" },
+            link: "https://github.com/michael-lesirge/neural-network",
             image: "neural-network.gif",
         },
         {
             humanReadableName: "Cryptography",
-            links: { "Project": "https://github.com/michael-lesirge/password-manager" },
+            link: "https://github.com/michael-lesirge/password-manager",
             image: "aes.gif",
         },
         {
             humanReadableName: "Algorithms",
-            name: {
-                "Sorting": "https://github.com/michael-lesirge/data-structures-and-algorithms/tree/main/sorting",
-                "LeetCode": "https://github.com/michael-lesirge/leetcode"
-            },
+            link: "https://github.com/michael-lesirge/data-structures-and-algorithms/tree/main/sorting",
             image: "sorting.gif",
         },
         {
             humanReadableName: "Physics and Animations",
-            name: {
-                "Physics": "https://github.com/michael-lesirge/intermediate-programming-class/tree/main/pygame-physics",
-                "Animations": "https://github.com/michael-lesirge/intermediate-programming-class/tree/main/turtle"
-            },
+            link: "https://github.com/michael-lesirge/intermediate-programming-class/tree/main/pygame-physics",
             image: "balls.gif",
         }
     ],
     web: [
         {
             humanReadableName: "Rock Paper Scissors",
-            links: { "Link": "https://michael-lesirge.github.io/simple-web-projects/rock-paper-scissors-battle/" },
+            link: "https://michael-lesirge.github.io/simple-web-projects/rock-paper-scissors-battle/",
             image: "rock-paper-scissors-battle.png",
         },
         {
             humanReadableName: "PID Simulation",
-            links: { "Link": "https://michael-lesirge.github.io/simple-web-projects/pid-demo/" },
+            link: "https://michael-lesirge.github.io/simple-web-projects/pid-demo/",
             image: "pid-demo.png",
         },
         {
             humanReadableName: "Text Effect Changer",
-            links: { "Link": "https://michael-lesirge.github.io/simple-web-projects/text-changer/" },
+            link: "https://michael-lesirge.github.io/simple-web-projects/text-changer/",
             image: "text-changer.png",
         },
         {
-            humanReadableName: "Roman Numeral Converter",
-            links: { "Link": "https://michael-lesirge.github.io/simple-web-projects/roman-numerals/" },
-            image: "roman-numerals.png",
+            humanReadableName: "Full Project List",
+            link: "https://michael-lesirge.github.io/simple-web-projects",
+            image: "my-web-projects.png",
         },
     ],
 }
@@ -64,7 +59,9 @@ for (const [name, content] of Object.entries(sections)) {
     const contentArea = section.querySelector(".card-container")
 
     for (const project of content) {
-        const card = document.createElement("div");
+        const card = document.createElement("a");
+        card.setAttribute("href", project.link)
+        card.setAttribute("target", "_blank")
         card.classList.add("card");
         card.style.backgroundImage = `url(${projectImagePath}/${project.image ?? "example.png"})`;
 
@@ -78,13 +75,29 @@ for (const [name, content] of Object.entries(sections)) {
 }
 
 selfLink(document.querySelector("#link-title"), smallScreen);
-if (!smallScreen) pong(document.querySelector("#pong"));
+
+const pongCanvas = document.querySelector("#pong")
+if (!smallScreen) pong(pongCanvas);
 
 // --- Link Back Title ---
 function selfLink(tag, shortVersion = false) {
     // Set title/link at top of page to current URL
     tag.setAttribute("href", window.location.href);
     tag.textContent = shortVersion ? window.location.host : window.location.href;
+}
+
+function respondToVisibility(element, callback) {
+  const options = {
+    root: document.documentElement,
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      callback(entry.intersectionRatio > 0);
+    });
+  }, options);
+
+  observer.observe(element);
 }
 
 // --- Pong ---
@@ -123,8 +136,10 @@ function pong(canvas) {
 
     let ballX = canvas.width / 2;
     let ballY = canvas.height / 2;
-    let ballSpeedX = 7;
-    let ballSpeedY = 3;
+
+    const speedMultiple = 1.2;
+    let ballSpeedX = 7 * speedMultiple;
+    let ballSpeedY = 3 * speedMultiple;
 
     // Score
     let player1Score = 0;
