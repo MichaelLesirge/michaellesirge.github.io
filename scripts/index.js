@@ -14,17 +14,17 @@ const sections = {
             image: "neural-network.gif",
         },
         {
-            humanReadableName: "Cryptography",
+            humanReadableName: "Cryptography and Steganography",
             link: "https://github.com/michael-lesirge/password-manager",
             image: "aes.gif",
         },
         {
-            humanReadableName: "Algorithms",
+            humanReadableName: "Data Structures and Algorithms",
             link: "https://github.com/michael-lesirge/data-structures-and-algorithms/tree/main/sorting",
             image: "sorting.gif",
         },
         {
-            humanReadableName: "Physics and Animations",
+            humanReadableName: "Physics, Animations, Etc",
             link: "https://github.com/michael-lesirge/intermediate-programming-class/tree/main/pygame-physics",
             image: "balls.gif",
         }

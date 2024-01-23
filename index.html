@@ -39,20 +39,24 @@
             </fieldset>
 
             <pre style="width: 100%; text-align: center; height: 5rem; display: flex; align-items: center; justify-content: center;">
-                <h2 id="graphic-design" style="transition: color 1s; font-family: 'Comic Sans MS'; background-color: grey; color: yellow; transform: rotate(4deg) scale(1, 1.3); text-decoration: dotted underline;"> Graphic Design is my Passion </h2>
+                <h2 id="graphic-design" style="transition: background 0.5s, transform 1s linear; font-family: 'Comic Sans MS'; background-color: green; color: yellow; transform: rotate(4deg) scale(1, 1.3); text-decoration: dotted underline;"> Graphic Design is My Passion </h2>
                 <script>
                 let id;
                 let count = 0;
                 let colors = ["red", "green", "blue"]
                 document.getElementById("graphic-design").addEventListener("mouseover", (event) => {
                     event.target.style.filter = "brightness(120%)"
-                    id = setInterval(() => event.target.style.color = colors[count++ % colors.length], 500);
+                    id = setInterval(() => {
+                        event.target.style.background = colors[count++ % colors.length];
+                        event.target.style.transform = `rotate(4deg) scale(${1 + count % 2 * 0.5}, ${1.3 + count % 2 * 0.46})`;
+                    }, 500)
                 })
                 document.getElementById("graphic-design").addEventListener("mouseleave", (event) => {
                     if (id) clearInterval(id)
                     event.target.style.filter = "";
-                    event.target.style.color = "yellow";
-                })
+                event.target.style.background = "green";
+                event.target.style.transform = " rotate(4deg) scale(1, 1.3)";
+            })
                 </script>
             </pre>
         </main>
