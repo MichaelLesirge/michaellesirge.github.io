@@ -38,24 +38,9 @@
                 <!-- <a href="https://michael-lesirge.github.io/simple-web-projects/">See All</a> -->
             </fieldset>
 
-            <pre style="width: 100%; text-align: center; height: 5rem; display: flex; align-items: center; justify-content: center;">
-                <h2 id="graphic-design" style="transition: background 0.5s, transform 1s linear; font-family: 'Comic Sans MS'; background-color: green; color: yellow; transform: rotate(4deg) scale(1, 1.3); text-decoration: dotted underline;"> Graphic Design is My Passion </h2>
-                <script>
-                let id;
-                let count = 0;
-                let colors = ["red", "green", "blue"]
-                document.getElementById("graphic-design").addEventListener("mouseover", (event) => {
-                    event.target.style.filter = "brightness(120%)"
-                    id = setInterval(() => event.target.style.background = colors[count++ % colors.length], 500)
-                })
-                document.getElementById("graphic-design").addEventListener("mouseleave", (event) => {
-                    if (id) clearInterval(id)
-                    event.target.style.filter = "";
-                event.target.style.background = "green";
-                event.target.style.transform = " rotate(4deg) scale(1, 1.3)";
-            })
-                </script>
-            </pre>
+            <div class="center-box">
+                <h2 id="graphic-design" class="text-rainbow-animation"> Graphic Design is My Passion </h2>
+            </div>
         </main>
     </div>
 </body>

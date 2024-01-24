@@ -105,9 +105,9 @@ fieldset .card-container .card {
     /* background-blend-mode: hard-light; */
     /* background-blend-mode: soft-light; */
 
-    box-shadow: 10px -34px 48px 0px rgba(0,0,0,0.75) inset;
-    -webkit-box-shadow: 10px -34px 48px 0px rgba(0,0,0,0.75) inset;
-    -moz-box-shadow: 10px -34px 48px 0px rgba(0,0,0,0.75) inset;
+    box-shadow: 10px -34px 48px 0px rgba(0, 0, 0, 0.75) inset;
+    -webkit-box-shadow: 10px -34px 48px 0px rgba(0, 0, 0, 0.75) inset;
+    -moz-box-shadow: 10px -34px 48px 0px rgba(0, 0, 0, 0.75) inset;
 
     outline: 1px solid white;
 }
@@ -118,4 +118,42 @@ fieldset .card-container .card {
 
 .card:active {
     scale: 1.03;
+}
+
+.center-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#graphic-design {
+    font-family: "Comic Sans MS";
+    cursor: cell;
+
+    font-size: 2rem;
+
+    color: yellow;
+    background-color: green;
+
+    text-decoration: dashed underline;
+
+    transform: rotate(3deg);
+
+    margin: 3rem;
+}
+
+.text-rainbow-animation:hover {
+    /* background-image:linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red); */
+    background-image:linear-gradient(to right, rgb(255, 0, 0), rgb(0, 255, 0), rgb(0, 0, 255), rgb(255, 0, 0));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow-animation 35s linear infinite;
+}
+
+@keyframes rainbow-animation {
+    to {
+        background-position: 4500vh;
+    }
 }
