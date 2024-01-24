@@ -111,3 +111,11 @@ fieldset .card-container .card {
 
     outline: 1px solid white;
 }
+
+.card:hover {
+    scale: 1.05;
+}
+
+.card:active {
+    scale: 1.03;
+}
