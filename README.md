@@ -1,22 +1,4 @@
-This is just to remind me what I wanted to put on here. Not finished.
+<a href="https://michael-lesirge.github.io/simple-web-projects/"><img src="https://github.com/michael-lesirge/simple-web-projects/assets/100492377/62bc38b9-1fa9-421d-93dc-041814e77ed0" alt="" width=20>Visit Project Page</a>
 
-# Projects
-## Python
-#### All projects should have link to place to run if possible (replit or something)
-Major Projects with Image and description
-- Neural Network from scratch with MNIST Drawing GUI
-- Command Line password manager with Cryptography and Steganography
-### Minor Projects with just link
-- Pygame Stuff
-- Turtle Graphics Stuff
-- Sorting Visualizer
-- Math class calculators
-- data-structures-and-algorithms 
-
-## Web
-#### All get image, link to live project, and description
-Assorted from https://github.com/michael-lesirge/random-simple-frontend-projects
-
-## What I know
-#### TicTacToe in everything I know with video of it running and link to run it
-Assorted from https://github.com/michael-lesirge/tic-tac-toe
+# my github.io page
+My random github.io page. Has links to a bunch of my random projects.
