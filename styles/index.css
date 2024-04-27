@@ -145,15 +145,33 @@ fieldset .card-container .card {
 
 .text-rainbow-animation:hover {
     /* background-image:linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red); */
-    background-image:linear-gradient(to right, rgb(255, 0, 0), rgb(0, 255, 0), rgb(0, 0, 255), rgb(255, 0, 0));
+    background-image: linear-gradient(to right, rgb(255, 0, 0), rgb(0, 255, 0), rgb(0, 0, 255), rgb(255, 0, 0));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: rainbow-animation 35s linear infinite;
+    animation: rainbow-animation 35s linear infinite, spin 1s linear infinite;
 }
 
 @keyframes rainbow-animation {
     to {
         background-position: 4500vh;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(3deg);
+    }
+    25% {
+        transform: rotate(-3deg);
+    }
+    50% {
+        transform: rotate(3deg);
+    }
+    75% {
+        transform: rotate(9deg);
+    }
+    to {
+        transform: rotate(3deg);
     }
 }
