@@ -51,6 +51,18 @@ const sections = {
             image: "my-web-projects.png",
         },
     ],
+    frc: [
+        {
+            humanReadableName: "2024 Crescendo",
+            link: "https://github.com/redshiftrobotics/crescendo-2024",
+            image: "robot.gif",
+        },
+        {
+            humanReadableName: "Simulation",
+            link: "https://github.com/michael-lesirge/next-year-swerve",
+            image: "advantage-scope.gif",
+        }
+    ],
 }
 
 for (const [name, content] of Object.entries(sections)) {
@@ -87,17 +99,17 @@ function selfLink(tag, shortVersion = false) {
 }
 
 function respondToVisibility(element, callback) {
-  const options = {
-    root: document.documentElement,
-  };
+    const options = {
+        root: document.documentElement,
+    };
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      callback(entry.intersectionRatio > 0);
-    });
-  }, options);
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            callback(entry.intersectionRatio > 0);
+        });
+    }, options);
 
-  observer.observe(element);
+    observer.observe(element);
 }
 
 // --- Pong ---
