@@ -98,18 +98,18 @@ function selfLink(tag, shortVersion = false) {
     tag.textContent = shortVersion ? window.location.host : window.location.href;
 }
 
-function respondToVisibility(element, callback) {
-    const options = {
-        root: document.documentElement,
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            callback(entry.intersectionRatio > 0);
-        });
-    }, options);
-
-    observer.observe(element);
+function isElementVisible(element) {
+    const item = element.getBoundingClientRect();
+    return (
+        item.top >= 0 &&
+        item.left >= 0 &&
+        item.bottom <= (
+            window.innerHeight ||
+            document.documentElement.clientHeight) &&
+        item.right <= (
+            window.innerWidth ||
+            document.documentElement.clientWidth)
+    );
 }
 
 // --- Pong ---
@@ -308,7 +308,7 @@ function pong(canvas) {
         }
         else {
             clear()
-            mainSection.scrollIntoView({ behavior: "smooth" });
+            if (isElementVisible(canvas)) mainSection.scrollIntoView({ behavior: "smooth" });
         }
     }
 
