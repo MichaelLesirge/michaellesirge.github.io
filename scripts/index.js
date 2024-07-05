@@ -10,44 +10,44 @@ const sections = {
     python: [
         {
             humanReadableName: "Neural Network",
-            link: "https://github.com/michael-lesirge/neural-network",
+            link: "https://github.com/michaellesirge/neural-network",
             image: "neural-network.gif",
         },
         {
             humanReadableName: "Cryptography and Steganography",
-            link: "https://github.com/michael-lesirge/password-manager",
+            link: "https://github.com/michaellesirge/password-manager",
             image: "aes.gif",
         },
         {
             humanReadableName: "Data Structures and Algorithms",
-            link: "https://github.com/michael-lesirge/data-structures-and-algorithms/tree/main/sorting",
+            link: "https://github.com/michaellesirge/data-structures-and-algorithms/tree/main/sorting",
             image: "sorting.gif",
         },
         {
             humanReadableName: "Physics, Animations, Etc",
-            link: "https://github.com/michael-lesirge/intermediate-programming-class/tree/main/pygame-physics",
+            link: "https://github.com/michaellesirge/intermediate-programming-class/tree/main/pygame-physics",
             image: "balls.gif",
         }
     ],
     web: [
         {
             humanReadableName: "Rock Paper Scissors",
-            link: "https://michael-lesirge.github.io/simple-web-projects/rock-paper-scissors-battle/",
+            link: "https://michaellesirge.github.io/simple-web-projects/rock-paper-scissors-battle/",
             image: "rock-paper-scissors-battle.png",
         },
         {
             humanReadableName: "PID Simulation",
-            link: "https://michael-lesirge.github.io/simple-web-projects/pid-demo/",
+            link: "https://michaellesirge.github.io/simple-web-projects/pid-demo/",
             image: "pid-demo.png",
         },
         {
             humanReadableName: "Text Effect Changer",
-            link: "https://michael-lesirge.github.io/simple-web-projects/text-changer/",
+            link: "https://michaellesirge.github.io/simple-web-projects/text-changer/",
             image: "text-changer.png",
         },
         {
             humanReadableName: "Full Project List",
-            link: "https://michael-lesirge.github.io/simple-web-projects",
+            link: "https://michaellesirge.github.io/simple-web-projects",
             image: "my-web-projects.png",
         },
     ],
@@ -59,7 +59,7 @@ const sections = {
         },
         {
             humanReadableName: "Simulation",
-            link: "https://github.com/michael-lesirge/next-year-swerve",
+            link: "https://github.com/michaellesirge/next-year-swerve",
             image: "advantage-scope.gif",
         }
     ],
