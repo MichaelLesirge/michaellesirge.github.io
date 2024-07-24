@@ -41,9 +41,9 @@ const sections = {
             image: "pid-demo.png",
         },
         {
-            humanReadableName: "Text Effect Changer",
-            link: "https://michaellesirge.github.io/simple-web-projects/text-changer/",
-            image: "text-changer.png",
+            humanReadableName: "Canvas Animations",
+            link:"https://michaellesirge.github.io/simple-web-projects/fancy-effects/",
+            image: "fancy-effects.png",
         },
         {
             humanReadableName: "Full Project List",
