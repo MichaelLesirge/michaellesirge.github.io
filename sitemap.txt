@@ -1,0 +1,7 @@
+https://michaellesirge.github.io/index.html
+https://michael-lesirge.github.io/simple-web-projects/index.html
+https://michaellesirge.github.io/simple-web-projects/rock-paper-scissors-battle/index.html
+https://michaellesirge.github.io/simple-web-projects/pid-demo/index.html
+https://michaellesirge.github.io/simple-web-projects/text-changer/index.html
+https://michaellesirge.github.io/simple-web-projects/roman-numerals/index.html
+https://michaellesirge.github.io/simple-web-projects/fancy-effects/index.html
