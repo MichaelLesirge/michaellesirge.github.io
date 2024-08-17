@@ -20,7 +20,7 @@ const sections = {
         },
         {
             humanReadableName: "Data Structures and Algorithms",
-            link: "https://github.com/michaellesirge/data-structures-and-algorithms/tree/main/sorting",
+            link: "https://github.com/michaellesirge/data-structures-and-algorithms/",
             image: "sorting.gif",
         },
         {
