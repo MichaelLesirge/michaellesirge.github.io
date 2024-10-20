@@ -112,7 +112,6 @@ function isElementVisible(element) {
     );
 }
 
-// --- Pong ---
 function pong(canvas) {
     const dpr = Math.ceil(window.devicePixelRatio || 1);
 
@@ -122,8 +121,8 @@ function pong(canvas) {
     const ctx = canvas.getContext("2d");
 
     // Paddle properties
-    const paddleWidth = 10;
-    const paddleHeight = 100;
+    const paddleWidth = canvas.width * 0.003;
+    const paddleHeight = canvas.height * 0.3;
 
     const shouldReset = false;
     let done = false;
@@ -144,7 +143,7 @@ function pong(canvas) {
     const paddleSpeed = canvas.height / 100;
 
     // Ball properties
-    const ballRadius = 10;
+    const ballRadius = canvas.width * 0.005;
 
     let ballX = canvas.width / 2;
     let ballY = canvas.height / 2;
@@ -168,7 +167,6 @@ function pong(canvas) {
     let trailCounter = 0;
 
     function clear() {
-        // Draw the background
         ctx.fillStyle = "black";
         ctx.fillRect(0, 0, canvas.width, canvas.height)
         ctx.fill();
@@ -189,7 +187,7 @@ function pong(canvas) {
 
         // Trail
         for (let i = 0; i < trail.length; i++) {
-            const alpha = i / trailMaxLength; // Adjust trail transparency
+            const alpha = i / trailMaxLength;
             ctx.fillStyle = `rgba(0, 200, 130, ${alpha})`;
             ctx.beginPath();
             ctx.arc(trail[i].x, trail[i].y, ballRadius / 2, 0, Math.PI * 2);
@@ -208,25 +206,73 @@ function pong(canvas) {
         ctx.fillStyle = "green";
         ctx.fill();
         ctx.closePath();
+    }
 
-        // Draw the scores
-        // ctx.fillText(`Player 1: ${player1Score}`, 100, 50);
-        // ctx.fillText(`Player 2: ${player2Score}`, canvas.width - 160, 50);
+    function predictBallY(playerX) {
+        let steps = Math.abs((playerX - ballX) / ballSpeedX);
+        let predictedY = ballY + ballSpeedY * steps;
+
+        // Account for bounces
+        while (predictedY < 0 || predictedY > canvas.height) {
+            if (predictedY < 0) {
+                predictedY = -predictedY;
+            } else if (predictedY > canvas.height) {
+                predictedY = 2 * canvas.height - predictedY;
+            }
+        }
+
+        return predictedY;
+    }
+
+    function aiMovePaddle(paddleY, targetY) {
+        const paddleCenter = paddleY + paddleHeight / 2;
+        if (targetY < paddleCenter - paddleHeight / 6) {
+            return Math.max(paddleY - paddleSpeed, 0);
+        } else if (targetY > paddleCenter + paddleHeight / 6) {
+            return Math.min(paddleY + paddleSpeed, canvas.height - paddleHeight);
+        }
+        return paddleY;
+    }
+
+    function moveTowardsCenter(paddleY) {
+        const centerY = canvas.height / 2 - paddleHeight / 2;
+        if (paddleY < centerY - paddleSpeed) {
+            return paddleY + paddleSpeed;
+        } else if (paddleY > centerY + paddleSpeed) {
+            return paddleY - paddleSpeed;
+        }
+        return paddleY;
     }
 
     function update() {
-        if (keys[player1Up] && paddleStartY > 0) {
+        // Player 1 AI control
+        if (!player1Moved && ballX < canvas.width / 3) {
+            if (ballSpeedX < 0) {  // Ball moving towards player 1
+                const predictedY = predictBallY(paddleWallGap + paddleWidth);
+                player1Y = aiMovePaddle(player1Y, predictedY);
+            } else {  // Ball moving away from player 1
+                player1Y = moveTowardsCenter(player1Y);
+            }
+        } else if (keys[player1Up] && player1Y > 0) {
             player1Y = Math.max(player1Y - paddleSpeed, 0);
             player1Moved = true;
-        } else if (keys[player1Down] && paddleStartY < canvas.height - paddleHeight) {
+        } else if (keys[player1Down] && player1Y < canvas.height - paddleHeight) {
             player1Y = Math.min(player1Y + paddleSpeed, canvas.height - paddleHeight);
             player1Moved = true;
         }
 
-        if (keys[player2Up] && paddleStartY > 0) {
+        // Player 2 AI control
+        if (!player2Moved && ballX > canvas.width * 2 / 3) {
+            if (ballSpeedX > 0) {  // Ball moving towards player 2
+                const predictedY = predictBallY(canvas.width - paddleWallGap - paddleWidth);
+                player2Y = aiMovePaddle(player2Y, predictedY);
+            } else {  // Ball moving away from player 2
+                player2Y = moveTowardsCenter(player2Y);
+            }
+        } else if (keys[player2Up] && player2Y > 0) {
             player2Y = Math.max(player2Y - paddleSpeed, 0);
             player2Moved = true;
-        } else if (keys[player2Down] && paddleStartY < canvas.height - paddleHeight) {
+        } else if (keys[player2Down] && player2Y < canvas.height - paddleHeight) {
             player2Y = Math.min(player2Y + paddleSpeed, canvas.height - paddleHeight);
             player2Moved = true;
         }
@@ -240,16 +286,19 @@ function pong(canvas) {
             ballSpeedY = -ballSpeedY;
         }
 
-        // Ball collision with paddles. Not just inverted to to bouncing around inside paddle
-        if (ballX - ballRadius * 0.25 <= paddleWidth + paddleWallGap && ballY + ballRadius > player1Y && ballY - ballRadius < player1Y + paddleHeight) {
-            ballSpeedX = Math.abs(ballSpeedX)
-            // ballSpeedX = -ballSpeedX;
-        }
-
-        else if (ballX + ballRadius * 0.25 >= canvas.width - paddleWidth - paddleWallGap &&
-            ballY > player2Y &&
-            ballY < player2Y + paddleHeight) {
+        // Ball collision with paddles
+        if (ballX - ballRadius <= paddleWidth + paddleWallGap && 
+            ballY + ballRadius > player1Y && 
+            ballY - ballRadius < player1Y + paddleHeight) {
+            ballSpeedX = Math.abs(ballSpeedX);
+            // Add some randomness to the Y speed
+            ballSpeedY += (Math.random() - 0.5) * (canvas.height * 0.002);
+        } else if (ballX + ballRadius >= canvas.width - paddleWidth - paddleWallGap &&
+            ballY + ballRadius > player2Y &&
+            ballY - ballRadius < player2Y + paddleHeight) {
             ballSpeedX = -Math.abs(ballSpeedX);
+            // Add some randomness to the Y speed
+            ballSpeedY += (Math.random() - 0.5) * (canvas.height * 0.002);
         }
 
         // Score update
@@ -263,10 +312,8 @@ function pong(canvas) {
             else done = true;
         }
 
-
         // Check for a winner
         if (player1Score >= winningScore || player2Score >= winningScore) {
-            // alert(`Game Over! ${player1Score > player2Score ? 'Player 1' : 'Player 2'} wins!`);
             player1Score = 0;
             player2Score = 0;
         }
@@ -278,13 +325,13 @@ function pong(canvas) {
             if (trail.length > trailMaxLength) trail.shift();
             trailCounter = 0;
         }
-
     }
 
     function resetBall() {
         ballX = canvas.width / 2;
         ballY = canvas.height / 2;
         ballSpeedX = -ballSpeedX;
+        ballSpeedY = (Math.random() - 0.5) * (canvas.height * 0.006);
     }
 
     // Keyboard controls
@@ -302,7 +349,6 @@ function pong(canvas) {
         update();
         clear();
         draw();
-        // if (!done) requestAnimationFrame(gameLoop);
         if (!done) {
             setTimeout(gameLoop, 1000 / 60);
         }
