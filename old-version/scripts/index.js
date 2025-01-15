@@ -3,8 +3,6 @@ const smallScreen = screen.width < 500;
 
 const mainSection = document.querySelector(".body")
 
-//Static site generator? Lame
-// TODO, make all projects clickable links
 const projectImagePath = "images/projects"
 const sections = {
     python: [
@@ -75,7 +73,7 @@ for (const [name, content] of Object.entries(sections)) {
         card.setAttribute("href", project.link)
         card.setAttribute("target", "_blank")
         card.classList.add("card");
-        card.style.backgroundImage = `url(${projectImagePath}/${project.image ?? "example.png"})`;
+        card.style.backgroundImage = `url(../${projectImagePath}/${project.image ?? "example.png"})`;
 
         const title = document.createElement("span");
         title.innerText = project.humanReadableName;

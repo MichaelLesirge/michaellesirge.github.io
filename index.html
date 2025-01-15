@@ -5,56 +5,324 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="styles/global.css">
-    <link rel="stylesheet" href="styles/index.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <script type="module" src="scripts/index.js"></script>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
 
     <meta name="description" content="Michael Lesirge's Programming Project List">
     <meta name="keywords" content="michaellesirge, projects, code, programming, software, list, homepage, ">
 
     <meta name="google-site-verification" content="pp7j9nC0xEdzF89O_kBBLxeVQtlOH3k_ipb_gw2wJKU" />
 
-    <title>Michael</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 1rem;
+        }
+
+        .warning {
+            font-size: 0.6rem;
+            color: red;
+        }
+
+        .github-info {
+            display: flex;
+            justify-content: center;
+            gap: 1px;
+
+            border-bottom: 1px solid black;
+
+            text-decoration: none;
+        }
+
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-evenly;
+            gap: 20px;
+
+            outline: 1px solid #ddd;
+            padding: 2rem;
+        }
+
+        .project {
+            position: relative;
+
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            width: 19rem;
+
+            text-decoration: none;
+            color: black;
+
+            /* transition: transform 0.3s ease-in-out; */
+            transition: scale 0.1s ease-in-out;
+        }
+
+        .project:hover,
+        .project:focus {
+            /* transform: translateY(-10px); */
+            scale: 1.05;
+
+        }
+
+        .project:active {
+            filter: brightness(0.9);
+        }
+
+        .project .project-image {
+            width: 100%;
+            height: 10rem;
+            display: block;
+            border-bottom: 1px solid #ddd;
+
+        }
+
+        .project .github-logo {
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+        }
+
+        .project .info {
+            padding: 15px;
+        }
+
+        .project .title {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .project h3 {
+            margin-top: 0;
+            margin-bottom: 0rem;
+            font-size: 1.2em;
+            /* text-decoration: underline; */
+        }
+
+        .project p {
+            margin-bottom: 0;
+        }
+
+        #github-foot {
+            display: none;
+        }
+
+        @media screen and (max-width: 700px) {
+            #github-head {
+                display: none;
+            }
+
+            #github-foot {
+                display: unset;
+            }
+        }
+
+        footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            margin-top: 1rem;
+            gap: 1rem;
+
+            width: 100%;
+        }
+
+        .inline-image {
+            display: inline-block;
+            height: 1.3rem;
+        }
+
+        .section-title {
+            margin-top: 2rem;
+            margin-bottom: 0rem;
+        }
+    </style>
+
 </head>
 
 <body>
+    <!-- This was super rushed so the code is kinda a mess -->
+
     <header>
-        <canvas id="pong"></canvas>
-        <h1><a id="link-title" href="https://michaellesirge.github.io/">https://michaellesirge.github.io/</a></h1>
+        <div>
+            <h1>Project list</h1>
+            <span>Links to various projects on my Github</span>
+        </div>
+        <noscript class="warning">Warning: You have JavaScript disabled on this site. Most projects here require
+            JavaScript for all functionality.</noscript>
+        <div id="github-head">
+            <a class="github-info" href="https://github.com/michaellesirge/simple-web-projects">
+                Michael Lesirge
+                <img src="images/logos/github.png" alt="Github" style="width: 1rem; height: 1rem;">
+            </a>
+        </div>
     </header>
-    <div class="body">
-        <nav>
-            <a href="">Projects</a>        
-            <a href="#python">Python</a>        
-            <a href="#web">Web</a>        
-            <a href="#frc">FRC</a>        
-        </nav>
-        <main>
-            <fieldset id="python">
-                <legend class="title"><h2>Python</h2><img src="images/logos/python.png" alt="Python"></legend>
-                <div class="card-container">
-                </div>
-            </fieldset>
+    <main>
+        <h2 class="section-title">Python <img class="inline-image" src="../images/logos/python.png" alt="Python"></h2>
+        <div id="python" class="projects">
 
-            <fieldset id="web">
-                <legend class="title"><h2>HTML/CSS/JS</h2><img style="margin-left: 3px;" src="images/logos/js.png" alt="Js"></legend>
-                <div class="card-container">
-                </div>
-                <!-- <a href="https://michaellesirge.github.io/simple-web-projects/">See All</a> -->
-            </fieldset>
+        </div>
+        <h2 class="section-title">Web <img class="inline-image" src="../images/logos/js.png" alt="Web"></h2>
+        <div id="web" class="projects">
 
-            <fieldset id="frc">
-                <legend class="title"><h2>FRC</h2><img style="margin-left: 3px;" src="images/logos/frc.png" alt="First"></legend>
-                <div class="card-container">
-                </div>
-                <!-- <a href="https://michaellesirge.github.io/simple-web-projects/">See All</a> -->
-            </fieldset>
+        </div>
 
-            <!-- <div class="center-box">
-                <h2 id="graphic-design" class="text-rainbow-animation"> Graphic Design is My Passion </h2>
-            </div> -->
-        </main>
-    </div>
+        <h2  class="section-title">FRC <img class="inline-image" src="../images/logos/frc.png" alt="Web"></h2>
+        <div id="frc" class="projects">
+
+        </div>
+    </main>
+    <footer>
+        <div id="github-foot">
+            <a class="github-info" href="https://github.com/michaellesirge/simple-web-projects">
+                github.com/michaellesirge
+                <img src="images/logos/github.png" alt="Github" style="width: 1rem; height: 1rem;">
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        const projectsElement = document.querySelector(".projects");
+
+        const projects = [
+            {
+                title: "Neural Network  🧠🤖",
+                desc: "A simple neural network implementation in Python from scratch. Includes a few projects where I use network.",
+                name: "neural-network",
+                url: "https://github.com/michaellesirge/neural-network",
+                image: "neural-network.gif",
+                section: "python"
+            },
+            {
+                title: "Cryptography and Steganography  🔒🖼️",
+                url: "https://github.com/michaellesirge/password-manager",
+                name: "password-manager",
+                desc: "AES encryption and image steganography implementation in Python",
+                image: "aes.gif",
+                section: "python"
+            },
+            {
+                title: "Data Structures and Algorithms  📚🔍",
+                desc: "A collection of data structures and algorithms implemented in Python",
+                name: "data-structures-and-algorithms",
+                link: "https://github.com/michaellesirge/data-structures-and-algorithms/",
+                image: "sorting.gif",
+                section: "python"
+            },
+            {
+                title: "Physics, Animations, Etc 🎮🔬",
+                name: "pygame-physics",
+                desc: "Physics simulations using Pygame, part of intermediate programming class",
+                url: "https://github.com/michaellesirge/intermediate-programming-class/tree/main/pygame-physics",
+                image: "balls.gif",
+                section: "python"
+            },
+            {
+                title: "Simple Web Projects 🌐🗂️",
+                name: "simple-web-projects",
+                desc: "Full collection of my plain HTML CSS JS projects",
+                url: "https://michaellesirge.github.io/simple-web-projects/",
+                image: "my-web-projects.png",
+                section: "web"
+            },
+            {
+                title: "Canvas Animations ⭐🎨",
+                name: "fancy-effects",
+                desc: "Collection of canvas animations with plain Javascript",   
+                url: "https://michaellesirge.github.io/simple-web-projects/fancy-effects/",
+                image: "fancy-effects.png",
+                section: "web"
+            },
+            {
+                title: "PID Simulation 🤖📈",
+                name: "pid-demo",
+                desc: "Simulation to demonstrate the use of a PID controller, for robotics",
+                url: "https://michaellesirge.github.io/simple-web-projects/pid-demo/",
+                image: "pid-demo.png",
+                section: "web"
+            },
+            {
+                title: "Conway's Game of Life 🧬🎮",
+                name: "conway",
+                desc: "Conway's Game of Life and Boids with colors and a few extra features",
+                url: "https://michaellesirge.github.io/simple-web-projects/conway/",
+                image: "conway.png",
+                section: "web"
+            },
+            {
+                title: "2024 Crescendo 🎵🎮",
+                name: "crescendo-2024",
+                desc: "Code for my teams 2024 FRC robot",
+                url: "https://github.com/redshiftrobotics/crescendo-2024",
+                image: "robot.gif",
+                section: "frc"
+            },
+            {
+                title: "Robot Simulation 🤖📈",
+                name: "next-year-swerve",
+                desc: "Simulation of a swerve drive robot for 2025 FRC season",
+                url: "https://github.com/michaellesirge/next-year-swerve",
+                image: "advantage-scope.gif",
+                section: "frc"
+            }
+        ];
+
+        const extraProjects = [
+        ]
+
+        // TODO, have all projects in one big array, create one row at a time until screen is full, then have bottom{load more} load one more row
+
+        // yaaa, not my finest work \/
+        // <span class="title"><h3 title="${name}">${title ?? "Empty"}</h3><img width=10 class="github-logo" src="images/github.png" alt="github logo"></span>
+
+        function createProject({ name, title, desc, section, image, ...extra }) {
+            document.getElementById(section).innerHTML += `
+            <a class="project" href="${extra.url ?? name ?? ""}" target="_blank">
+                <img width=500 class="project-image" src="images/projects/${image || name.split("/")[0] + ".png" || "example.png"}" alt="Screenshot of ${title ?? "Project"}">
+                <div class="info">
+                    <span class="title"><h3 title="${name}">${title ?? "Untitled"}</h3></span>
+                    <p>${desc ?? ""}</p>
+                </div>
+            </a>
+            `;
+        }
+
+        projects.forEach(createProject)
+
+        // const loadMoreButton = document.getElementById("more");
+        // loadMoreButton.addEventListener("click", (data) => {
+        //     loadMoreButton.remove();
+        //     extraProjects.forEach(createProject);
+        // });
+
+    </script>
+
 </body>
+
 </html>
