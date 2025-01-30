@@ -156,6 +156,10 @@
             #github-foot {
                 display: unset;
             }
+
+            .clock {
+                display: none;
+            }
         }
 
         footer {
@@ -179,6 +183,28 @@
             margin-top: 2rem;
             margin-bottom: 0rem;
         }
+
+        .about {
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+            gap: 0;
+            align-items: center;
+        }
+
+        .about p {
+            padding: 2rem;
+            width: 75%;
+        }
+
+        .about img {
+            height: auto;
+        }
+
+        .clock {
+            padding: 2rem;
+        }
+
     </style>
 
 </head>
@@ -202,10 +228,17 @@
     </header>
     <main>
         <h3 class="section-title">About</h3>
-        <div class="projects">
+        <div class="projects about">
+            <div class="clock">
+                <iframe src="https://free.timeanddate.com/clock/i9qt5a2n/n234/szw110/szh110/hoc000/hbw4/cf100/hgr0/fav0/fiv0/mqc000/mqs3/mql25/mqw6/mqd96/mhc000/mhs3/mhl20/mhw6/mhd96/mmc000/mms3/mml10/mmw2/mmd96/hhw16/hmw16/hmr4/hsc000/hss3/hsl90" frameborder="0" width="110" height="110"></iframe>
+            </div>
             <p>
-                I'm Michael, a high-schooler at Seattle Academy. Scroll down for the links to various projects on my Github.
+                Hi! This is where I keep some of my favorite programming projects. Most of them started as random ideas I thought would be interesting to try out, or they are for robotics, and some actually turned into something cool in my opinion. Feel free to check them out—maybe you'll find something interesting. I'm hoping this list will probably keep growing.
             </p>
+            <div>
+<!-- https://github.com/anuraghazra/github-readme-stats -->
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=michaellesirge&layout=compact&size_weight=0.5&count_weight=0.5&langs_count=8" alt="Github Stats">
+            </div>
         </div>
 
         <h2 class="section-title">Python <img class="inline-image" src="../images/logos/python.png" alt="Python"></h2>
@@ -223,6 +256,7 @@
             <!-- FRC Projects -->
         </div>
 
+        <h2></h2>
         <div class="projects">
             <canvas id="pong" style="width: 100%; height: 10rem;"></canvas>
         </div>
@@ -589,7 +623,6 @@
             // Keyboard controls
             const keys = {};
             document.addEventListener("keydown", (e) => {
-                console.log(e.key);
                 keys[e.key] = true;
             });
 
