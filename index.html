@@ -156,10 +156,6 @@
             #github-foot {
                 display: unset;
             }
-
-            .clock {
-                display: none;
-            }
         }
 
         footer {
@@ -185,24 +181,38 @@
         }
 
         .about {
-            display: flex;
-            flex-direction: row;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
             padding: 0;
-            gap: 0;
             align-items: center;
         }
-
-        .about p {
-            padding: 2rem;
-            width: 75%;
+        
+        .about div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .about img {
+        .about div:has(p) {
+            padding: 2rem;
+        }
+
+        .about div:has(img) {
             height: auto;
         }
 
         .clock {
             padding: 2rem;
+        }
+
+        @media screen and (max-width: 1100px) {
+            .about {
+                grid-template-columns: 2fr 1fr;
+            }
+
+            .clock {
+                display: none !important;
+            }
         }
 
     </style>
@@ -230,11 +240,13 @@
         <h3 class="section-title">About</h3>
         <div class="projects about">
             <div class="clock">
+                <!-- TODO, make my own clock or find another placdeholder -->
                 <iframe src="https://free.timeanddate.com/clock/i9qt5a2n/n234/szw110/szh110/hoc000/hbw4/cf100/hgr0/fav0/fiv0/mqc000/mqs3/mql25/mqw6/mqd96/mhc000/mhs3/mhl20/mhw6/mhd96/mmc000/mms3/mml10/mmw2/mmd96/hhw16/hmw16/hmr4/hsc000/hss3/hsl90" frameborder="0" width="110" height="110"></iframe>
             </div>
-            <p>
-                Hi! This is where I keep some of my favorite programming projects. Most of them started as random ideas I thought would be interesting to try out, or they are for robotics, and some actually turned into something cool in my opinion. Feel free to check them out—maybe you'll find something interesting. I'm hoping this list will probably keep growing.
-            </p>
+            <div>
+                <p> Hi! This is where I keep some of my favorite programming projects. Most of them started as random ideas I thought would be interesting to try out, or they are for robotics, and some actually turned into something cool in my opinion. Feel free to check them out—maybe you'll find something interesting. I'm hoping this list will probably keep growing.
+                </p>
+            </div>
             <div>
 <!-- https://github.com/anuraghazra/github-readme-stats -->
                 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=michaellesirge&layout=compact&size_weight=0.5&count_weight=0.5&langs_count=8" alt="Github Stats">
