@@ -1,14 +1,12 @@
-
 export default function pong(canvas) {
 	console.log(canvas);
-	
+
 	const dpr = Math.ceil(window.devicePixelRatio || 1);
 
 	canvas.width = canvas.clientWidth * dpr;
 	canvas.height = canvas.clientHeight * dpr;
 
 	const ctx = canvas.getContext("2d");
-    
 
 	// Paddle properties
 	const paddleWidth = canvas.width * 0.003;
@@ -33,7 +31,7 @@ export default function pong(canvas) {
 	const paddleSpeed = canvas.height / 100;
 
 	// Ball properties
-	const ballRadius = canvas.width * 0.005;
+	const ballRadius = Math.max(canvas.width * 0.005, canvas.height * 0.005, 10);
 
 	let ballX = canvas.width / 2;
 	let ballY = canvas.height / 2;
@@ -247,7 +245,9 @@ export default function pong(canvas) {
 		update();
 		clear();
 		draw();
-        requestAnimationFrame(gameLoop);
+		if (!done) {
+			requestAnimationFrame(gameLoop);
+		}
 	}
 
 	gameLoop();

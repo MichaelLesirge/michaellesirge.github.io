@@ -68,7 +68,7 @@ const projects = [
 	{
 		title: "2024 Crescendo 🎵🎮",
 		name: "crescendo-2024",
-		desc: "Code for my teams 2024 FRC robot",
+		desc: "Code for my teams 2024 FRC robot. Includes swerve drive, vision, auto alignment, and more",
 		url: "https://github.com/redshiftrobotics/crescendo-2024",
 		image: "robot.gif",
 		section: "frc",
@@ -76,7 +76,7 @@ const projects = [
 	{
 		title: "2025 Reefscape 🐠🎮",
 		name: "reefscape-2025",
-		desc: "Code for my teams 2025 FRC robot, current in progress",
+		desc: "Code for my teams 2025 FRC robot, currently in progress",
 		url: "https://githib.com/redshiftrobotics/reefscape-2025",
 		image: "2025swerve.gif",
 		section: "frc",
