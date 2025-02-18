@@ -1,5 +1,4 @@
 export default function pong(canvas) {
-	console.log(canvas);
 
 	const dpr = Math.ceil(window.devicePixelRatio || 1);
 
@@ -241,14 +240,16 @@ export default function pong(canvas) {
 	});
 
 	// Game loop
-	function gameLoop() {
+	return () => {
 		update();
 		clear();
 		draw();
-		if (!done) {
-			requestAnimationFrame(gameLoop);
+		if (done) {
+			clear();
+			ctx.fillStyle = "white";
+			ctx.font = `${paddleWidth * 2}px monospace`;
+			ctx.textAlign = "center";
+			ctx.fillText("Game Over", canvas.width / 2, canvas.height / 2 + paddleWidth);
 		}
 	}
-
-	gameLoop();
 }

@@ -68,6 +68,14 @@ main {
 	padding: 2rem;
 }
 
+.projects.comp {
+	gap: 5px;
+}
+
+.project.comp div {
+	height: min-content;
+}
+
 .project {
 	position: relative;
 
