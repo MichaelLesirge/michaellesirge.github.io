@@ -81,8 +81,8 @@ export default function conway(canvas) {
 
 	canvas.addEventListener("mousemove", (e) => {
 		const rect = canvas.getBoundingClientRect();
-		const x = Math.floor((e.clientX - rect.left) / gridSize);
-		const y = Math.floor((e.clientY - rect.top) / gridSize);
+		const x = Math.floor((e.clientX - rect.left) * dpr / gridSize);
+		const y = Math.floor((e.clientY - rect.top) * dpr / gridSize);
 
 		if (lastMousePoint) {
 			drawLine(lastMousePoint[0], lastMousePoint[1], x, y);
