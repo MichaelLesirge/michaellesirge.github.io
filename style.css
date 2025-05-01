@@ -200,6 +200,13 @@ footer {
 	height: auto;
 }
 
+.flex-row {
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+	gap: 1rem;
+}
+
 .clock {
 	padding: 2rem;
 
