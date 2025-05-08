@@ -3,7 +3,7 @@ const projectsElement = document.querySelector(".projects");
 const projects = [
 	{
 		title: "Neural Network  🤖🔗",
-		desc: "A simple neural network implementation in Python from scratch. Includes a few projects where I use network.",
+		desc: "A simple neural network implementation in Python from scratch. Uses network in MNIST visualizer, Tetris, and next char prediction.",
 		name: "neural-network",
 		url: "https://github.com/michaellesirge/neural-network",
 		image: "neural-network.gif",
@@ -13,13 +13,13 @@ const projects = [
 		title: "Cryptography and Steganography  🔒🖼️",
 		url: "https://github.com/michaellesirge/password-manager",
 		name: "password-manager",
-		desc: "AES encryption and image steganography implementation in Python",
+		desc: "AES encryption and image steganography implementation in Python. Includes a toy CLI password manager for testing.",
 		image: "aes.gif",
 		section: "python",
 	},
 	{
 		title: "Data Structures and Algorithms  📚🔍",
-		desc: "A collection of data structures and algorithms implemented in Python",
+		desc: "A collection of data structures and algorithms visualized in Python. Includes many sorting algorithms, A* maze solving, BST, and more.",
 		name: "data-structures-and-algorithms",
 		url: "https://github.com/michaellesirge/data-structures-and-algorithms/",
 		image: "sorting.gif",
@@ -28,7 +28,7 @@ const projects = [
 	{
 		title: "Physics, Animations, Etc 🎮🔬",
 		name: "pygame-physics",
-		desc: "Physics simulations using Pygame, part of intermediate programming class",
+		desc: "Physics simulations using Pygame, part of intermediate programming class. Also has few other random projects.",
 		url: "https://github.com/michaellesirge/intermediate-programming-class/tree/main/pygame-physics",
 		image: "balls.gif",
 		section: "python",
@@ -42,11 +42,11 @@ const projects = [
 		section: "web",
 	},
 	{
-		title: "Canvas Animations ⭐🎨",
-		name: "fancy-effects",
-		desc: "Collection of canvas animations with plain Javascript",
-		url: "https://michaellesirge.github.io/simple-web-projects/fancy-effects/",
-		image: "fancy-effects.png",
+		title: "Tetris 🧩🕹️",
+		name: "tetris",
+		desc: "Recreation of the original Tetris game. Has immersive audio.",
+		url: "https://michaellesirge.github.io/simple-web-projects/tetris/",
+		image: "tetris.png",
 		section: "web",
 	},
 	{
@@ -91,7 +91,7 @@ const projects = [
 	{
 		title: "Robot Simulation 🤖📈",
 		name: "next-year-swerve",
-		desc: "Simulation of a swerve drive robot for 2025 FRC season",
+		desc: "Simulation of a swerve drive robot on field and visualizer. Made in preparation for 2025 FRC season to test autonomous movement code.",
 		url: "https://github.com/michaellesirge/next-year-swerve",
 		image: "advantage-scope.gif",
 		section: "frc",
