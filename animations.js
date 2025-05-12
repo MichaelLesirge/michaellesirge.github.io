@@ -1,6 +1,7 @@
 import conway from "./conway.js";
 import pong from "./pong.js";
 import quicksort from "./sorting.js";
+import tetris from "./tetris.js";
 import { randomChoice } from "./util.js";
 
 // TODO, cycle though projects with interactive:
@@ -13,7 +14,8 @@ const optionList = document.getElementById('canvas-options');
 const programs = {
     "Pong": pong(canvas),
     "Conway": conway(canvas),
-    "Sort": quicksort(canvas)
+    "Sort": quicksort(canvas),
+    "Tetris": tetris(canvas),
 };
 
 const options = Object.keys(programs);
