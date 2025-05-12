@@ -23,7 +23,13 @@ let currentProgram = randomChoice(options);
 let paused = false;
 
 document.addEventListener("keydown", (event) => {
-    if (event.key === "p") {        
+    if (event.key === " ") {    
+        paused = !paused;
+    }
+});
+
+document.addEventListener("click", (event) => {
+    if (event.target === canvas) {
         paused = !paused;
     }
 });
