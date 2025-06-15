@@ -14,6 +14,11 @@ export default function quicksort(canvas) {
     let runs = 0;
     let arraySizeGetter = (runs) => Math.round(Math.pow((runs + 4), 1.5))
 
+    function makeArray(size) {
+        array = Array.from({ length: size }, (_, i) => (i + 1) / (size + 1));
+        return array.sort(() => Math.random() - 0.5);
+    }
+
     let operations = [];
 
     let array;
@@ -113,7 +118,7 @@ export default function quicksort(canvas) {
 
     function update() {
         if (operations.length === 0) {
-            array = Array.from({ length: arraySizeGetter(runs) }, () => Math.random());
+            array = makeArray(arraySizeGetter(runs));
             barWidth = canvas.width / array.length;
             isSorted = false;
 
