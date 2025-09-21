@@ -2,7 +2,7 @@ const projectsElement = document.querySelector(".projects");
 
 const projects = [
 	{
-		title: "Neural Network  🤖🔗",
+		title: "Neural Network",
 		desc: "A simple neural network implementation in Python from scratch. Uses network in MNIST visualizer, Tetris, and next char prediction.",
 		name: "neural-network",
 		url: "https://github.com/michaellesirge/neural-network",
@@ -10,7 +10,7 @@ const projects = [
 		section: "python",
 	},
 	{
-		title: "Cryptography and Steganography  🔒🖼️",
+		title: "Cryptography and Steganography",
 		url: "https://github.com/michaellesirge/password-manager",
 		name: "password-manager",
 		desc: "AES encryption and image steganography implementation in Python. Includes a toy CLI password manager for testing.",
@@ -18,7 +18,7 @@ const projects = [
 		section: "python",
 	},
 	{
-		title: "Data Structures and Algorithms  📚🔍",
+		title: "Data Structures and Algorithms",
 		desc: "A collection of data structures and algorithms visualized in Python. Includes many sorting algorithms, A* maze solving, BST, and more.",
 		name: "data-structures-and-algorithms",
 		url: "https://github.com/michaellesirge/data-structures-and-algorithms/",
@@ -26,7 +26,7 @@ const projects = [
 		section: "python",
 	},
 	{
-		title: "Physics, Animations, Etc 🎮🔬",
+		title: "Physics, Animations, Etc",
 		name: "pygame-physics",
 		desc: "Physics simulations using Pygame, part of intermediate programming class. Also has few other random projects.",
 		url: "https://github.com/michaellesirge/intermediate-programming-class/tree/main/pygame-physics",
@@ -34,7 +34,7 @@ const projects = [
 		section: "python",
 	},
 	{
-		title: "Simple Web Projects 🌐🗂️",
+		title: "Simple Web Projects",
 		name: "simple-web-projects",
 		desc: "Full collection of my plain HTML CSS JS projects",
 		url: "https://michaellesirge.github.io/simple-web-projects/",
@@ -42,7 +42,7 @@ const projects = [
 		section: "web",
 	},
 	{
-		title: "Tetris 🧩🕹️",
+		title: "Tetris",
 		name: "tetris",
 		desc: "Recreation of the original Tetris game. Has immersive audio.",
 		url: "https://michaellesirge.github.io/simple-web-projects/tetris/",
@@ -50,7 +50,7 @@ const projects = [
 		section: "web",
 	},
 	{
-		title: "PID Simulation 🤖📈",
+		title: "PID Simulation",
 		name: "pid-demo",
 		desc: "Simulation to demonstrate the use of a PID controller, for robotics",
 		url: "https://michaellesirge.github.io/simple-web-projects/pid-demo/",
@@ -58,7 +58,7 @@ const projects = [
 		section: "web",
 	},
 	{
-		title: "Conway's Game of Life 🧬🎮",
+		title: "Conway's Game of Life",
 		name: "conway",
 		desc: "Conway's Game of Life and Boids with colors and a few extra features",
 		url: "https://michaellesirge.github.io/simple-web-projects/conway/",
@@ -66,7 +66,7 @@ const projects = [
 		section: "web",
 	},
 	{
-		title: "2024 Crescendo 🎵🎮",
+		title: "2024 Crescendo",
 		name: "crescendo-2024",
 		desc: "Code for my teams 2024 FRC robot. Includes swerve drive, vision, auto alignment, and more.",
 		url: "https://github.com/redshiftrobotics/crescendo-2024",
@@ -74,7 +74,7 @@ const projects = [
 		section: "frc",
 	},
 	{
-		title: "2025 Reefscape 🐠🎮",
+		title: "2025 Reefscape",
 		name: "reefscape-2025",
 		desc: "Code for my teams 2025 FRC robot. Includes swerve drive, hardware and simulation IO layers, simulation visualizer, path planning, and more.",
 		url: "https://github.com/redshiftrobotics/reefscape-2025",
@@ -89,7 +89,7 @@ const projects = [
 		section: "frc",
 	},
 	{
-		title: "Robot Simulation 🤖📈",
+		title: "Robot Simulation",
 		name: "next-year-swerve",
 		desc: "Simulation of a swerve drive robot on field and visualizer. Made in preparation for 2025 FRC season to test autonomous movement code.",
 		url: "https://github.com/michaellesirge/next-year-swerve",
