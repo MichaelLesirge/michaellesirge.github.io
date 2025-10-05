@@ -3,6 +3,7 @@ const projectsElement = document.querySelector(".projects");
 const projects = [
 	{
 		title: "Neural Network",
+		best: true,
 		desc: "A simple neural network implementation in Python from scratch. Uses network in MNIST visualizer, Tetris, and next char prediction.",
 		name: "neural-network",
 		url: "https://github.com/michaellesirge/neural-network",
@@ -35,6 +36,7 @@ const projects = [
 	},
 	{
 		title: "Simple Web Projects",
+		best: true,
 		name: "simple-web-projects",
 		desc: "Full collection of my plain HTML CSS JS projects",
 		url: "https://michaellesirge.github.io/simple-web-projects/",
@@ -75,6 +77,7 @@ const projects = [
 	},
 	{
 		title: "Robot Simulation",
+		best: true,
 		name: "next-year-swerve",
 		desc: "Simulation of a swerve drive robot on field and visualizer. Made in preparation for 2025 FRC season to test autonomous movement code.",
 		url: "https://github.com/michaellesirge/next-year-swerve",
@@ -123,7 +126,9 @@ function createProject({ name, title, desc, section, image, ...extra }) {
 			image || name.split("/")[0] + ".png" || "example.png"
 		}" alt="Screenshot of ${title ?? "Project"}">
         <div class="info">
-            <span class="title"><h3 title="${name}">${title ?? "Untitled"}</h3></span>
+            <span class="title"><h3 title="${name}">${title ?? "Untitled"}</h3>${
+				extra.best ? '<span class="best">Favorite</span>' : ""
+			}</span>
             <p>${desc ?? ""}</p>
         </div>
     </a>

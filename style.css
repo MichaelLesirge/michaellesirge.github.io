@@ -147,6 +147,23 @@ main {
 	display: none;
 }
 
+.best {
+	color: gold;
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		text-shadow: 0 0 5px gold;
+	}
+	50% {
+		text-shadow: 0 0 20px gold;
+	}
+	100% {
+		text-shadow: 0 0 5px gold;
+	}
+}
+
 @media screen and (max-width: 700px) {
 	#github-head {
 		display: none;
