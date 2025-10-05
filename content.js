@@ -96,7 +96,7 @@ const projects = [
 		title: "2025 Reefscape",
 		name: "reefscape-2025",
 		desc: "Code for my teams 2025 FRC robot. Includes swerve drive, hardware and simulation IO layers, simulation visualizer, path planning, and more.",
-		url: "https://github.com/redshiftrobotics/reefscape-2025",
+		url: "https://github.com/MichaelLesirge/reefscape-2025",
 		image: "2025robot.gif",
 		section: "frc",
 	},
