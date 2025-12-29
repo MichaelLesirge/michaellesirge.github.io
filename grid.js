@@ -1,5 +1,15 @@
 
 export default class Grid {
+
+    lineColor = '#e0e0e0';
+
+    blockedSquareColor = '#000000';
+    emptySquareColor = '#ffffff';
+
+    /**
+     * @param {CanvasRenderingContext2D} ctx 
+     * @param {number} cellSize
+     */
     constructor(ctx, cellSize) {
         this.ctx = ctx;
 
@@ -22,12 +32,28 @@ export default class Grid {
         }
     }
 
+    isEmpty(x, y) {
+        return this.get(x, y) === undefined;
+    }
+
+    isBlocked(x, y) {
+        return this.get(x, y) === null;
+    }
+
+    block(x, y) {
+        this.set(x, y, null);
+    }
+
+    clear(x, y) {
+        this.set(x, y, undefined);
+    }
+
     updateCellSize(newCellSize) {
         this.cellSize = newCellSize;
         this.width = Math.ceil(this.ctx.canvas.width / newCellSize);
         this.height = Math.ceil(this.ctx.canvas.height / newCellSize);
         
-        const newArray = Array.from({ length: this.height }, () => Array(this.width).fill(0));
+        const newArray = Array.from({ length: this.height }, () => Array(this.width).fill(undefined));
         for (let y = 0; y < Math.min(this.height, this.array ? this.array.length : 0); y++) {
             for (let x = 0; x < Math.min(this.width, this.array[0] ? this.array[0].length : 0); x++) {
                 newArray[y][x] = this.array[y][x];
@@ -37,8 +63,20 @@ export default class Grid {
     }
 
     draw() {
-        this.ctx.strokeStyle = '#e0e0e0';
         this.ctx.lineWidth = 1;
+        for (let y = 0; y < this.height; y++) {
+            for (let x = 0; x < this.width; x++) {
+                if (this.isBlocked(x, y)) {
+                    this.ctx.fillStyle = this.blockedSquareColor;
+                } else if (this.isEmpty(x, y)) {
+                    this.ctx.fillStyle = this.emptySquareColor;
+                } else {
+                    this.ctx.fillStyle = this.get(x, y);
+                }
+                this.ctx.fillRect(x * this.cellSize, y * this.cellSize, this.cellSize, this.cellSize);
+            }
+        }
+        this.ctx.strokeStyle = '#e0e0e0';
         for (let x = 0; x <= this.width; x++) {
             this.ctx.beginPath();
             this.ctx.moveTo(x * this.cellSize, 0);
