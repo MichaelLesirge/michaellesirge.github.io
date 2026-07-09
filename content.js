@@ -6,7 +6,7 @@ const projects = [
 		desc: "A simple neural network in Python with just NumPy.",
 		name: "neural-network",
 		url: "https://github.com/MichaelLesirge/neural-network/tree/main/neural_network",
-		image: "nn-code.png",
+		image: "nn-code.webp",
 		section: "python",
 	},
 	{
@@ -14,7 +14,7 @@ const projects = [
 		url: "https://github.com/MichaelLesirge/neural-network/tree/main?tab=readme-ov-file#tetris-tetris",
 		name: "password-manager",
 		desc: "Pygame Tetris clone controlled by a DQN agent using my neural network.",
-		image: "nn-tetris.gif",
+		image: "nn-tetris.webp",
 		section: "python",
 	},
 	{
@@ -22,7 +22,7 @@ const projects = [
 		desc: "Network trained to recognize handwritten digits from the MNIST dataset, includes Tkinter GUI",
 		name: "data-structures-and-algorithms",
 		url: "https://github.com/MichaelLesirge/neural-network/tree/main/mnist",
-		image: "neural-network.gif",
+		image: "neural-network.webp",
 		section: "python",
 	},
 	{
@@ -30,7 +30,7 @@ const projects = [
 		name: "pygame-physics",
 		desc: "Pygame pong clone with AI and human players, plus a visualizer for the smaller neural network.",
 		url: "https://github.com/MichaelLesirge/neural-network/tree/main?tab=readme-ov-file#pong-and-network-visualizer-pong",
-		image: "nn-pong.gif",
+		image: "nn-pong.webp",
 		section: "python",
 	},
 	{
@@ -39,7 +39,7 @@ const projects = [
 		name: "simple-web-projects",
 		desc: "Full collection of my plain HTML CSS JS projects",
 		url: "https://michaellesirge.github.io/simple-web-projects/",
-		image: "my-web-projects.png",
+		image: "my-web-projects.webp",
 		section: "web",
 	},
 	{
@@ -47,7 +47,7 @@ const projects = [
 		name: "pid-demo",
 		desc: "Simulation to demonstrate tuning PID controller with car, motor, and pong. ",
 		url: "https://michaellesirge.github.io/simple-web-projects/pid-demo/",
-		image: "pid-demo.png",
+		image: "pid-demo.webp",
 		section: "web",
 	},
 	{
@@ -55,7 +55,7 @@ const projects = [
 		name: "conway",
 		desc: "Game of Rock Paper Scissors. Very intense gameplay to watch unfold.",
 		url: "https://michaellesirge.github.io/simple-web-projects/rock-paper-scissors-battle/",
-		image: "battle.png",
+		image: "battle.webp",
 		section: "web",
 	},
 	// {
@@ -63,7 +63,7 @@ const projects = [
 	// 	name: "conway",
 	// 	desc: "Conway's Game of Life and Boids with colors and a few extra features",
 	// 	url: "https://michaellesirge.github.io/simple-web-projects/conway/",
-	// 	image: "conway.png",
+	// 	image: "conway.webp",
 	// 	section: "web",
 	// },
 	{
@@ -71,7 +71,7 @@ const projects = [
 		name: "xbox-diagram-maker",
 		desc: "Tool for custom Xbox controller diagrams. Used by robotics team.",
 		url: "https://michaellesirge.github.io/simple-web-projects/xbox-diagram-maker/",
-		image: "xbox-diagram.png",
+		image: "xbox-diagram.webp",
 		section: "web",
 	},
 	{
@@ -79,7 +79,7 @@ const projects = [
 		name: "next-year-swerve",
 		desc: "Simulation of a swerve drive robot on field and visualizer. Made in preparation for 2025 FRC season to test autonomous movement code.",
 		url: "https://github.com/michaellesirge/next-year-swerve",
-		image: "advantage-scope.gif",
+		image: "advantage-scope.webp",
 		section: "frc",
 	},
 	{
@@ -87,7 +87,7 @@ const projects = [
 		name: "crescendo-2024",
 		desc: "Code for my teams 2024 FRC robot. Much simpler and lacks simulation.",
 		url: "https://github.com/redshiftrobotics/crescendo-2024",
-		image: "robot.gif",
+		image: "robot.webp",
 		section: "frc",
 	},
 	{
@@ -96,14 +96,14 @@ const projects = [
 		name: "reefscape-2025",
 		desc: "Code for my teams 2025 FRC robot. Includes swerve drive, hardware and simulation IO layers, simulation visualizer, path planning, and more.",
 		url: "https://github.com/MichaelLesirge/reefscape-2025",
-		image: "2025robot.gif",
+		image: "2025robot.webp",
 		section: "frc",
 	},
 	// {
 	// 	title: "2026 [TBD]",
 	// 	desc: "Looking forward to the 2026 FRC game!",
 	// 	url: "https://info.firstinspires.org/first-age",
-	// 	image: "2025swerve.gif",
+	// 	image: "2025swerve.webp",
 	// 	section: "frc",
 	// },
 	{
@@ -111,7 +111,7 @@ const projects = [
 		name: "next-year-swerve",
 		desc: "Code for my teams pneumatic t-shirt cannon robot. Lots of pneumatic control systems and non-FRC hardware integration. All logic was simulated in advance to ensure safety.",
 		url: "https://github.com/redshiftrobotics/t-shirt-cannon",
-		image: "tshirt.gif",
+		image: "tshirt.webp",
 		section: "frc",
 	},
 ];
@@ -122,7 +122,7 @@ function createProject({ name, title, desc, section, image, ...extra }) {
 	document.getElementById(section).innerHTML += `
     <a class="project" href="${extra.url ?? name ?? ""}" target="_blank">
         <img width=500 class="project-image" src="images/projects/${
-			image || name.split("/")[0] + ".png" || "example.png"
+			image || name.split("/")[0] + ".webp" || "example.webp"
 		}" alt="Screenshot of ${title ?? "Project"}">
         <div class="info">
             <span class="title"><h3 title="${name}">${title ?? "Untitled"}</h3>${
