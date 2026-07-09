@@ -136,19 +136,12 @@ function createProject({ name, title, desc, section, image, ...extra }) {
 
 projects.forEach(createProject);
 
-// hacky way to load image and hide on failure
-(async () => {
-	const url = "https://streak-stats.demolab.com/?user=michaellesirge";
-
-	try {
-		const res = await fetch(url, { cache: "no-store" });
-		if (!res.ok) return;
-		
-		const blob = await res.blob();
-		const img = document.getElementById("github-stats");
-		img.src = URL.createObjectURL(blob);
-		img.style.display = "block";
-	} catch (e) {
-		console.log("Failed to load github stats image:", e);
-	}
-})();
+// hacky fix for github stats image sometimes not loading
+const img = document.getElementById("github-stats");
+const removeTimer = setTimeout(() => {
+	img.remove();
+	console.log("Removed github stats image due to load failure.");
+}, 200);
+img.onload = () => {
+	clearTimeout(removeTimer);
+}
