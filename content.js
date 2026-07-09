@@ -85,7 +85,7 @@ const projects = [
 	{
 		title: "2024 Crescendo",
 		name: "crescendo-2024",
-		desc: "Code for my teams 2024 FRC robot. Much simpler and lacks simulation.",
+		desc: "Code for my team's 2024 FRC robot. Much simpler and lacks simulation.",
 		url: "https://github.com/redshiftrobotics/crescendo-2024",
 		image: "robot.webp",
 		section: "frc",
@@ -94,7 +94,7 @@ const projects = [
 		title: "2025 Reefscape",
 		best: true,
 		name: "reefscape-2025",
-		desc: "Code for my teams 2025 FRC robot. Includes swerve drive, hardware and simulation IO layers, simulation visualizer, path planning, and more.",
+		desc: "Code for my team's 2025 FRC robot. Includes swerve drive, hardware and simulation IO layers, simulation visualizer, path planning, and more.",
 		url: "https://github.com/MichaelLesirge/reefscape-2025",
 		image: "2025robot.webp",
 		section: "frc",
@@ -109,7 +109,7 @@ const projects = [
 	{
 		title: "T-Shirt Cannon",
 		name: "next-year-swerve",
-		desc: "Code for my teams pneumatic t-shirt cannon robot. Lots of pneumatic control systems and non-FRC hardware integration. All logic was simulated in advance to ensure safety.",
+		desc: "Code for my team's pneumatic t-shirt cannon robot. Lots of pneumatic control systems and non-FRC hardware integration. All logic was simulated in advance to ensure safety.",
 		url: "https://github.com/redshiftrobotics/t-shirt-cannon",
 		image: "tshirt.webp",
 		section: "frc",
